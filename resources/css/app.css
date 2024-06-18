@@ -1,0 +1,17 @@
+@tailwind base;
+@tailwind components;
+@tailwind utilities;
+
+.delete-button {
+    background-color: red;
+}
+.delete-button:hover {
+    background-color: rgb(182, 0, 0);
+}
+
+.reserve-button {
+    background-color:green;
+}
+.reserve-button:hover {
+    background-color: rgb(1, 91, 1);
+}
