@@ -28,13 +28,11 @@
                         </x-nav-link>
                     </div>
                 @endif
-                @if (Auth::user()->is_admin == true)
                     <div class="hidden space-x-8 sm:-my-px sm:ms-10 sm:flex">
                         <x-nav-link :href="route('reservations.index')" :active="request()->routeIs('reservations.index')">
                             {{ __('Your Reservations') }}
                         </x-nav-link>
                     </div>
-                @endif
             </div>
 
             <!-- Settings Dropdown -->

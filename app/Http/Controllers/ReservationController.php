@@ -51,8 +51,8 @@ class ReservationController extends Controller
         $reservation->last_name = $validatedData['last_name'];
         $reservation->email = $validatedData['email'];
         $reservation->phone_number = $validatedData['phone_number'];
-        $reservation->from = now();  // Example: Use the current date as 'from'
-        $reservation->till = now()->addDays(1);  // Example: Use the next day as 'till'
+        $reservation->from = $validatedData['from'];
+        $reservation->till = $validatedData['till'];  // Example: Use the next day as 'till'
     
         // Save the reservation
         $reservation->save();
@@ -118,5 +118,23 @@ class ReservationController extends Controller
     {
         $reservation->delete();
         return redirect()->route('reservations.index')->with('success', 'Reservation deleted successfully!');
+    }
+    
+    public function accept($id)
+    {
+    $reservation = Reservation::find($id);
+    $reservation->status = 'accepted';
+    $reservation->save();
+
+    return redirect()->route('reservations.index')->with('success', 'Reservation accepted.');
+    }
+
+public function reject($id)
+    {
+    $reservation = Reservation::find($id);
+    $reservation->status = 'rejected';
+    $reservation->save();
+
+    return redirect()->route('reservations.index')->with('success', 'Reservation rejected.');
     }
 }

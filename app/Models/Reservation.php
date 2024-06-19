@@ -12,13 +12,9 @@ class Reservation extends Model
     {
         return $this->belongsTo(Room::class);
     }
-    protected $fillable = [
-        'first_name',
-        'last_name',
-        'email',
-        'phone_number',
-        'from',
-        'till',
-        'room_id',
-    ];
+    // In app/Models/Reservation.php
+protected $fillable = [
+    'user_id', 'room_id', 'first_name', 'last_name', 'email', 'phone_number', 'from', 'till', 'status'
+];
+
 }

@@ -30,6 +30,10 @@ Route::middleware('auth')->group(function () {
     Route::delete('/reservations/{reservation}', [ReservationController::class, 'destroy'])->name('reservations.destroy');
     Route::get('/reservations/{reservation}/edit', [ReservationController::class, 'edit'])->name('reservations.edit');
     Route::put('/reservations/{reservation}', [ReservationController::class, 'update'])->name('reservations.update');
+
+    Route::get('/reservations/{id}/accept', [ReservationController::class, 'accept'])->name('reservations.accept');
+    Route::get('/reservations/{id}/reject', [ReservationController::class, 'reject'])->name('reservations.reject');
 });
+
 
 require __DIR__.'/auth.php';
